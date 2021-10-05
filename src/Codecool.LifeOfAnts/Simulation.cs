@@ -26,7 +26,7 @@ namespace Codecool.LifeOfAnts
 
         private string GetInput()
         {
-            Console.Out.WriteLine("Press \"q\" to quit");
+            Console.Out.WriteLine("Press \"q\" to quit or enter to continue");
             return Console.ReadLine();
         }
 
