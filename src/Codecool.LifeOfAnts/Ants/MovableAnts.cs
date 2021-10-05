@@ -15,7 +15,6 @@ namespace Codecool.LifeOfAnts.Ants
 
         public void ChangePosition(int positionX, int positionY)
         {
-            Colony.FindSquare(positionX, positionY).RemoveAnt(this);
             var newX = ManagePositionOnBoard(positionX);
             var newY = ManagePositionOnBoard(positionY);
             Position = new Position(newX, newY);
