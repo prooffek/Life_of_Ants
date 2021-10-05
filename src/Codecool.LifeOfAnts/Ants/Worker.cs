@@ -2,6 +2,7 @@ namespace Codecool.LifeOfAnts.Ants
 {
     public class Worker : MovableAnts
     {
+        public override char Symbol { get; protected set; }
         public Worker()
         {
             Symbol = 'W';
@@ -12,7 +13,7 @@ namespace Codecool.LifeOfAnts.Ants
         {
             int randomNumber = _random.Next(4);
             Colony.FindSquare(this).RemoveAnt(this);
-        
+
             switch (randomNumber)
             {
                 case (int)Direction.North:
@@ -28,7 +29,8 @@ namespace Codecool.LifeOfAnts.Ants
                     ChangePosition(Position.X - 1, Position.Y);
                     break;
             }
-        
+
             Colony.FindSquare(Position.X, Position.Y).AddAnt(this);
         }
+    }
 }

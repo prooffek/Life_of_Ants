@@ -4,14 +4,16 @@ namespace Codecool.LifeOfAnts.Ants
 {
     public class Queen : Ant
     {
+        public override char Symbol { get; protected set; }
         public int MatingMood { get; private set; }
+
         public bool MatingInProgress { get; private set; }
 
         public Queen(int width = 10)
         {
             Symbol = 'Q';
             int boardCenter = width / 2;
-            var square = Colony.FindSquare(boardCenter);
+            var square = Colony.FindSquare(boardCenter, boardCenter);
             Position = new Position(boardCenter, boardCenter);
             ResetMood();
         }
@@ -41,13 +43,13 @@ namespace Codecool.LifeOfAnts.Ants
             return MatingMood <= 0;
         }
 
-        private ActOnUpdate()
+        public override void ActOnUpdate()
         {
             if (MatingMood > 0)
                 DecreseMood();
         }
 
-        public void ChangeMatingInProgressStatus()
+        public void ChangeMaitingInProgrssStatus()
         {
             MatingInProgress = !MatingInProgress;
         }

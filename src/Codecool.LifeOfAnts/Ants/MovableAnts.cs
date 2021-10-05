@@ -5,7 +5,7 @@ namespace Codecool.LifeOfAnts.Ants
     public abstract class MovableAnts : Ant
     {
         public abstract void Move();
-        
+
         protected void SetStartingPosition()
         {
             var x = _random.Next(Colony.Width);

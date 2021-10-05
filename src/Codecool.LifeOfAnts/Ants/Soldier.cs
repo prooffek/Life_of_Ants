@@ -2,7 +2,10 @@ namespace Codecool.LifeOfAnts.Ants
 {
     public class Soldier : MovableAnts
     {
+        public override char Symbol { get; protected set; }
+
         private int _moveCount = default;
+
         public Soldier()
         {
             Symbol = 'S';
@@ -12,7 +15,7 @@ namespace Codecool.LifeOfAnts.Ants
         public override void Move()
         {
             Colony.FindSquare(this).RemoveAnt(this);
-            
+
             switch (_moveCount % 4)
             {
                 case 0:
@@ -28,7 +31,7 @@ namespace Codecool.LifeOfAnts.Ants
                     ChangePosition(Position.X, Position.Y - 1);
                     break;
             }
-            
+
             Colony.FindSquare(Position.X, Position.Y).AddAnt(this);
         }
     }

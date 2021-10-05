@@ -2,7 +2,10 @@ namespace Codecool.LifeOfAnts.Ants
 {
     public class Drone : MovableAnts
     {
+        public override char Symbol { get; protected set; }
+
         public int MatingCounter { get; private set; } = 0;
+
         private Queen _queen;
 
         public Drone()
@@ -48,14 +51,16 @@ namespace Codecool.LifeOfAnts.Ants
             {
                 _queen.ResetMood();
                 _queen.ChangeMaitingInProgrssStatus();
-                MatingCount = 12;
+                MatingCounter = 12;
             }
             else if (IsOnQueen() && IsStillMating())
-                MatingCount--;
+            {
+                MatingCounter--;
+            }
             else if (IsOnQueen() && StopsMatingInNextTour())
             {
                 _queen.ChangeMaitingInProgrssStatus();
-                MatingCount--;
+                MatingCounter--;
             }
             else if (IsOnQueen() && QueenWillNotMate())
             {
@@ -65,7 +70,7 @@ namespace Codecool.LifeOfAnts.Ants
 
         private bool IsOnQueen()
         {
-            return _queen.PositionX == PositionX && _queen.PositionY == PositionY;
+            return _queen.Position.X == Position.X && _queen.Position.Y == Position.Y;
         }
 
         private bool QueenIsReadyToMate()
@@ -75,12 +80,12 @@ namespace Codecool.LifeOfAnts.Ants
 
         private bool IsStillMating()
         {
-            return _queen.MatingInProgress && MatingCount > 1;
+            return _queen.MatingInProgress && MatingCounter > 1;
         }
 
         private bool StopsMatingInNextTour()
         {
-            return _queen.MatingInProgress && MatingCount == 1;
+            return _queen.MatingInProgress && MatingCounter == 1;
         }
 
         private bool QueenWillNotMate()
