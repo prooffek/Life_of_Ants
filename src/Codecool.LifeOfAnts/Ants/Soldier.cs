@@ -32,6 +32,8 @@ namespace Codecool.LifeOfAnts.Ants
                     break;
             }
 
+            _moveCount++;
+
             Colony.FindSquare(Position.X, Position.Y).AddAnt(this);
         }
     }
