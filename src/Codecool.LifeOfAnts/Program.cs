@@ -12,7 +12,8 @@ namespace Codecool.LifeOfAnts
         /// </summary>
         public static void Main()
         {
-            Console.WriteLine("Hello, Ants!");
+            var simulation = new Simulation(10, 3, 5, 5);
+            simulation.Tour();
         }
     }
 }
